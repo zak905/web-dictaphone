@@ -14,7 +14,6 @@ if (navigator.mediaDevices.getUserMedia) {
   console.log('getUserMedia supported.');
 
   const constraints = { audio: true };
-  let chunks = [];
 
   let onSuccess = function(stream) {
     const mediaRecorder = new MediaRecorder(stream);
@@ -57,8 +56,6 @@ if (navigator.mediaDevices.getUserMedia) {
       xhr.open("POST","http://localhost:8080/recordings/upload?meeting_id=85649576594",true);
       xhr.setRequestHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTM1OTU2NTkuMjA5MDAxLCJzdWIiOiI2NDA4YjJkNS0yY2M5LTQxMjItYTA1MC1jYTYzNjdiMjEwNDUifQ.swXKpKZQqJkux4VMVSO9cQtBYy7TGzpsTNIPuFMnBNE")
 		  xhr.send(e.data);
-      
-      chunks.push(e.data);
     }
   }
 
